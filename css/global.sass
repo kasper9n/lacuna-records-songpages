@@ -1,0 +1,261 @@
+// sass --watch css/global.sass:css/global.css
+
+div.bg
+	width: 100%
+	height: 100%
+	z-index: -8
+	position: fixed
+img.bg
+	min-width: 110%
+	min-height: 110%
+	z-index: -9
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	filter: blur(30px)
+
+	@media (max-width: 1500px)
+		min-width: 115%
+		min-height: 115%
+	@media (max-width: 1250px)
+		min-width: 120%
+		min-height: 120%
+	@media (max-width: 800px)
+		min-width: 130%
+		min-height: 130%
+
+html
+	body
+		margin: 0px
+		width: 100%
+		height: 100%
+
+	a
+		color: black
+		text-decoration: none
+
+	p
+		text-align: center
+		margin: 0px
+		padding: 0px
+		font-family: Roboto
+
+main
+
+main.track-page
+
+	div.wrapper
+		width: 100%
+		max-width: 900px
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+		section.info
+			height: 250px
+			display: flex
+
+			div.cover-wrapper
+				margin-left: 10px
+				display: block
+				width: 250px
+				height: 250px
+
+				.cover
+					width: 250px
+					height: 250px
+					display: block
+					position: absolute
+					transition: transform 100ms ease-out, opacity 100ms ease-out
+
+				img.cover
+					overflow: hidden
+				div.darken
+					background-color: #000000
+					opacity: 0
+				div.play-button
+					background-image: url("/img/play.png")
+					background-repeat: no-repeat
+					background-position: center
+					background-size: 80px
+					opacity: 0
+				div.idkbro
+					width: 250px
+					height: 250px
+					z-index: -1
+
+				&:hover
+					img.cover
+						// transform: scale(1.03)
+					div.darken
+						// transform: scale(1.03)
+						opacity: 0.2
+					div.play-button
+						opacity: 0.75
+
+			div.info-card
+				color: #FFFFFF
+				width: 100%
+				max-height: 250px
+				margin: 0px 10px
+
+				div.title
+					display: flex
+
+					p.title
+						// border-top-left-radius: 3px
+						border-top-right-radius: 3px
+						width: 100%
+						font-size: 20px
+						padding: 10px 0px
+						background-color: rgba(#FFFFFF, 0.05)
+
+					p.catalog-id
+						border-top-right-radius: 3px
+						padding: 13px 10px
+						font-size: 15px
+						color: #CCCCCC
+						background-color: rgba(#FFFFFF, 0.1)
+
+				div.tempbg
+					width: 100%
+					height: 206px
+					background-color: rgba(#000000, 0.25)
+					// border-bottom-left-radius: 3px
+					border-bottom-right-radius: 3px
+
+		section.cards
+			display: flex
+			justify-content: space-between
+
+			a
+				width: 100%
+				max-width: 250px
+				margin: 10px
+				cursor: pointer
+				transition: background-color 100ms ease-out
+
+				div.card
+					background-color: rgba(#FFFFFF, 0.25)
+					width: 100%
+					max-width: 250px
+					height: 100px
+					transition: height 200ms
+					border-radius: 3px
+
+					@media (max-height: 400px)
+						height: 80px
+					@media (max-width: 700px)
+						height: 80px
+
+
+					.icon
+						background-position: center
+						background-repeat: no-repeat
+						width: 100%
+						height: 100%
+
+				&:hover
+					background-color: rgba(#FFFFFF, 0.5)
+
+				div.freedownload .icon
+					background-image: url("/img/freedownload-icon.png")
+				div.soundcloud .icon
+					background-image: url("/img/soundcloud-icon.png")
+				div.youtube .icon
+					background-image: url("/img/youtube-icon.png")
+				div.spotify .icon
+					background-image: url("/img/spotify-icon.png")
+				div.share .icon
+					background-image: url("/img/share.png")
+
+			div.share-box
+				position: absolute
+
+main.adminpage
+
+	div.bahaada
+		display: flex
+		justify-content: center
+
+	form
+		max-width: 900px
+		margin-right: auto
+		margin-left: auto
+		margin-top: 7px
+		margin-bottom: 7px
+
+		&.upload-form
+			margin-top: 23px
+
+		input
+			padding: 8px 5px
+			font-size: 15px
+			margin: 0px
+			border: none
+			color: white
+			&:focus
+				outline: none
+
+		div.links-toggle
+			cursor: pointer
+			width: 34px
+			height: 34px
+			position: fixed
+			transform: translateX(-34px)
+			background-color: rgba(#999999, 0.2)
+			background-image: url("/img/chevron-down.png")
+			&:hover
+				background-color: rgba(#FFFFFF, 0.2)
+
+		div.track-info
+			display: flex
+
+			input
+				&[name="catalog_id"], &[name="cover_art_filename"]
+					width: 80px
+					text-align: center
+					background-color: rgba(#999999, 0.2)
+				&[name="artist"], &[name="title"]
+					width: 100%
+					background-color: rgba(#FFFFFF, 0.2)
+					&:focus
+						background-color: rgba(#CCCCCC, 0.2)
+
+				&[name="submit_tracks_edit"]
+					cursor: pointer
+					background-color: rgba(#77C4FF, 0.3)
+					&:hover
+						background-color: rgba(#0090FF, 0.5)
+				&[name="submit_tracks_delete"]
+					cursor: pointer
+					background-color: rgba(#FF7979, 0.3)
+					&:hover
+						background-color: rgba(#FF0000, 0.5)
+				&[name="submit_tracks_add"]
+					cursor: pointer
+					background-color: rgba(#7AFF7C, 0.3)
+					padding: 0px 32.5px
+					&:hover
+						background-color: rgba(#00FF03, 0.5)
+
+		div.track-links
+			display: flex
+			flex-wrap: wrap
+
+			input
+				color: #FFFFFF
+				&[name="soundcloud_link"]
+					width: 100%
+					background-color: rgba(#FFB000, 0.5)
+					font-size: 13px
+				&[name="youtube_link"]
+					width: 100%
+					background-color: rgba(#F90F0F, 0.5)
+					font-size: 13px
+				&[name="spotify_link"]
+					width: 100%
+					background-color: rgba(#6AFA59, 0.5)
+					font-size: 13px

@@ -1,0 +1,172 @@
+main.adminpage
+
+	form
+		display: flex
+		justify-content: center
+
+		&:hover input
+			background-color: rgba(#000000, 0.10)
+
+		input
+			padding: 10px 5px
+			font-size: 15px
+			border: none
+			background-color: rgba(#000000, 0.05)
+			text-align: center
+			width: 80px
+			margin: 0px
+
+			&:focus
+				outline: none
+
+			&[name="artist"], &[name="title"]
+				width: 175px
+
+			&[name="soundcloud_link"], &[name="youtube_link"], &[name="spotify_link"]
+				width: 100%
+
+			&[type="submit"]
+				cursor: pointer
+			&[name="submit_tracks_delete"]
+				width: 65px
+				&:hover
+					background-color: rgba(#FF0000, 0.4)
+			&[name="submit_tracks_edit"]
+				width: 65px
+				border-left: 1px solid #7c7c7c
+				&:hover
+					background-color: rgba(#0090FF, 0.4)
+			&[name="submit_tracks_add"]
+				width: 130px
+				border-left: 1px solid #7c7c7c
+				&:hover
+					background-color: rgba(#00FF00, 0.4)
+
+
+
+// sass --watch css/global.sass:css/global.css
+
+// html
+// 	body
+// 		margin: 0px
+// 		width: 100%
+// 		height: 100%
+//
+// 	a
+// 		color: black
+// 		text-decoration: none
+//
+// 	p
+// 		text-align: center
+// 		margin: 0px
+// 		padding: 0px
+// 		font-family: Roboto
+
+main
+	display: flex
+	justify-content: center
+
+main.track-page
+
+	section.info
+		width: 100%
+		max-width: 900px
+		//center:
+		display: flex
+		flex-wrap: wrap
+		position: fixed
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+		div.cover-wrapper
+			margin: 7px
+
+		.cover
+			width: 250px
+			height: 250px
+			display: block
+
+			div.idkbro
+				width: 250px
+				height: 250px
+
+			.cover
+				position: absolute
+				top: 7px
+				transition: transform 200ms ease-out, opacity 200ms ease-out
+
+			div.darken
+				opacity: 0
+				background-color: #000000
+
+			div.play-button
+				opacity: 0
+
+				background-image: url("/img/play-80.png")
+				background-repeat: no-repeat
+				background-position: center
+
+			&:hover
+				img.cover
+					transform: scale(1.03)
+				div.darken
+					transform: scale(1.03)
+					opacity: 0.25
+				div.play-button
+					opacity: 0.75
+
+		div.info-card
+			background-color: rgba(#000000, 0.25)
+			color: #FFFFFF
+			width: 630px
+			height: 250px
+			margin-right: 10px
+			margin-left: 10px
+
+			p.title
+				font-size: 20px
+				padding: 10px 0px
+				background-color: rgba(#FFFFFF, 0.05)
+
+	section.cards
+		background-color: #39A3BE
+		width: 100%
+		display: flex
+
+		div.card
+			width: 250px
+			height: 150px
+			margin: 7px
+			background-color: rgba(#FFFFFF, 0.5)
+
+		div.soundcloud
+			background-image: url("/img/soundcloud-icon.png")
+
+		div.youtube
+			background-image: url("/img/youtube-icon.png")
+
+		div.spotify
+			background-image: url("/img/spotify-icon.png")
+
+	div.bg
+		width: 100%
+		height: 100%
+		z-index: -8
+		position: fixed
+
+	img.bg
+		filter: blur(30px)
+		min-width: 110%
+		min-height: 110%
+		z-index: -9
+		position: fixed
+		top: 50%
+		left: 50%
+		margin-right: -50%
+		transform: translate(-50%, -50%)
+		background-color: #000000
+
+		@media (max-width: 750px)
+			min-width: 120%
+			min-height: 120%
